@@ -12,7 +12,7 @@ async function createInbox() {
             url: `https://api.mailslurp.com/sendEmail?apiKey=${API_KEY}`,
             data: {
               senderId: res.data.id,
-              to: res.data.emailAddress,
+              to: "res.data.emailAddress",
               subject: "Hello inbox 2",
               body: "Test from inbox 1",
             },
@@ -49,6 +49,8 @@ module.exports = function(router) {
     router.post("/uploadConfig",function(req,res){
         createInbox();
     })
-
+    router.get("/",(req, res)=>{
+        res.send("ddd")
+    })
     return router;
 };
